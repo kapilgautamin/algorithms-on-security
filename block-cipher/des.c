@@ -3,7 +3,7 @@
 //Example Cipher:85E813540F0AB405
 #include <stdio.h>
 #include<stdlib.h>
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////constants initialization
+////////////////////constants initialization
 char ip[][8]={
 {58 ,50 ,42, 34, 26, 18, 10, 2},
 {60 ,52 ,44 ,36 ,28 ,20 ,12 ,4},
@@ -86,7 +86,7 @@ char s4[][16]={
             {10  ,6 , 9 , 0, 12 ,11 , 7 ,13 ,15 , 1 , 3 ,14 , 5 , 2,  8,  4},
              {3 ,15 , 0 , 6 ,10 , 1 ,13 , 8  ,9 , 4  ,5 ,11 ,12 , 7 , 2 ,14}
 };
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
+///////////****************************KAPIL GAUTAM*****************/////////////////////////
 char s5[][16]={
              {2 ,12 , 4 , 1 , 7 ,10 ,11 , 6,  8,  5 , 3 ,15 ,13 , 0 ,14 , 9},
             {14 ,11 , 2 ,12 , 4 , 7 ,13 , 1 , 5 , 0 ,15 ,10 , 3  ,9 , 8 , 6},
@@ -122,7 +122,7 @@ char final_permutation[][4]={
 {19 ,13 ,30 , 6},
 {22 ,11  ,4 ,25}
 };
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Function assigns Binary Values
+///////////////////////////Function assigns Binary Values
 char * assign_binary(char a)
 {
 switch(a)
@@ -153,7 +153,7 @@ case 'F':  return     "1111"   ;
 default:{printf("\nNot a Hexadecimal Value");exit(0);}
 }
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Calculates String Length
+////////////////////////////////Calculates String Length
 int string_length(char * text){
 int length=0,i=0;
 for (i=0;text[i]!='\0';i++)
@@ -161,14 +161,14 @@ length++;
 //printf("%d",length);
 return length;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Calculates the xor of given bits
+///////////////////////////////Calculates the xor of given bits
 char xor_function(char a,char b){
 if(a=='0' && b=='1') return '1';
 else if(a=='1' && b=='1') return '0';
 else if(a=='0' && b=='0') return '0';
 else if(a=='1' && b=='0') return '1';
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Gives the first and last bit of 6 bits
+/////////////////////////////Gives the first and last bit of 6 bits
 int first_last(char a,char b){
 //printf("first_digit=%c\t,last_digit=%c\n",a,b);
 if(a=='0' && b=='0') return 0;
@@ -176,7 +176,7 @@ else if(a=='0' && b=='1') return 1;
 else if(a=='1' && b=='0') return 2;
 else if(a=='1' && b=='1') return 3;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Gives the middle 4 bits of 6 bits
+/////////////////////////////Gives the middle 4 bits of 6 bits
 int middle_four(char *string,int x){
 if(string[x]=='0'){
                         if(string[x+1]=='0')    {
@@ -186,7 +186,7 @@ if(string[x]=='0'){
                                                                         return 0;}
                                                                         else if(string[x+3]=='1')   {
                                                                         //printf("middle_four=>0001");
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
+//////////****************************KAPIL GAUTAM*******/////////
                                                                         return 1;}}
                                                  else if (string[x+2]=='1'){
                                                                         if(string[x+3]=='0') {
@@ -248,7 +248,7 @@ else if(string[x]=='1'){
                                                         }
                         }
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Converts decimal to Hexadecimal
+///////////////////////////Converts decimal to Hexadecimal
 char decimal_to_hexadecimal(int a){
 //printf("a is=>%d\n",a);
 switch(a){
@@ -270,7 +270,7 @@ case 14:return 'e';
 case 15:return 'f';
 default:{printf("\nNo Value Found\n");exit(0);}
 }}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Power function
+///////////////////////Power function
 int power(int x, int y){
 int mul=1,i;
 for(i=0;i<y;i++)
@@ -278,7 +278,7 @@ mul=x*mul;
 //printf("power is =>%d\n",mul);
 return mul;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Converts binary to hexadecimal
+///////////////////////Converts binary to hexadecimal
 char binary_to_hexadecimal(char *string){
 int i,j,value=0,sum=0;                              //binary to decimal
 for(i=3,j=0;i>=0 && j<4;i--,j++)
@@ -288,8 +288,8 @@ sum=sum+value;
 }
 return decimal_to_hexadecimal(sum);             //decimal to hexadecimal
 }
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Converts decimal to binary
+////////////////*********KAPIL GAUTAM********************///////////////////
+///////////////////////////Converts decimal to binary
 char *decimal_to_binary(int a){
 //printf("a=>%d\n",a);
 switch (a){
@@ -312,7 +312,7 @@ case 15: return "1111";
 default:{printf("\nNo Value Found\n");exit(0);}
 }
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Converts hexadecimal to binary
+/////////////////////////////////////////Converts hexadecimal to binary
 char *convert_hex_to_binary(char *hex_text){
 int hex_length=string_length(hex_text);
 char binary[(hex_length*4)+15*4+1];            //extra 15*4 for padding and +1 for null character
@@ -337,7 +337,7 @@ printf("Length of Binary Form=%d\n",binary_length);
 char *binary2=binary;
 return binary2;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Converts string to binary
+///////////////////////Converts string to binary
 char * convert_string_to_binary(char *plain_text)
 {
 int i,j,k;i=j=k=0;
@@ -388,8 +388,7 @@ while(hex[i]!='\0')
 //printf("%s",binary);
 j=0;
 while(temp_binary[j]!='\0')
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
-{binary[k]=temp_binary[j];
+/////////////*******KAPIL GAUTAM*********************////
 j++;k++;}
 i++;
 }
@@ -402,7 +401,7 @@ char *binary1=binary;
 return binary1;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Convert binary to string
+////////////////////////////////Convert binary to string
 char * convert_binary_to_string(char *binary)
 {
 int i,j,k;i=j=k=0;
@@ -448,40 +447,7 @@ return hex_text1;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Decryption function
+////////////////////////////////Decryption function
 char *decryption(char* left_message,char* right_message,char *key_left,char *key_right,int shift,int round)
 {
 char new_left_message[32+1];                     //+1for null character
@@ -534,7 +500,7 @@ else {whole_key[k]=key_right[i-28];k++;}
 }
 whole_key[k]='\0';
 printf("Combined key  is=>     ");puts(whole_key);
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
+//////////////////*******KAPIL GAUTAM*********///////
 //////////////////////////////////////////Permutation choice 2
 char permutated_2_key[48+1];          //+1for null character
 k=0;
@@ -552,7 +518,7 @@ while(right_message[i]!='\0')
 }
 new_left_message[i]='\0';
 
-//////////////////////////////////////////////////////Expansion of the right part of message
+////////////////////////////Expansion of the right part of message
 
 char expansion_message[48+1];             //+1for null character
 k=0;
@@ -563,7 +529,7 @@ expansion_message[k]='\0';
 printf("Exapansion Message=>   ");puts(expansion_message);
 
 
-///////////////////////////////////////////////XOR of permutated key and the expansion function
+/////////////////XOR of permutated key and the expansion function
 char xor[48+1];                      //+1for null character
 i=0;
 while(expansion_message[i]!='\0' && permutated_2_key[i]!='\0')
@@ -572,7 +538,7 @@ while(expansion_message[i]!='\0' && permutated_2_key[i]!='\0')
 xor[i]='\0';
 printf(" XORed   Message =>    ");puts(xor);
 
-/////////////////////////////////////////////////Substitution Boxes
+///////////////////Substitution Boxes
 char sbox1[4],sbox2[4],sbox3[4],sbox4[4],sbox5[4],sbox6[4],sbox7[4],sbox8[4];
 
 for(i=0;i<48;i++)
@@ -628,8 +594,8 @@ case 7:{new_xored[k]=sbox8[j];k++;}break;
 }
 new_xored[k]='\0';
 printf(" After  S-Boxes  =>    ");puts(new_xored);
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
-/////////////////////////////////////////Final Permutation
+/////////////*********KAPIL GAUTAM*******************/////////////////
+///////////////////////////Final Permutation
 char permutation_new_xor[32+1];          //+1for null character
 k=0;
 for(i=0;i<8;i++)
@@ -640,7 +606,7 @@ for(j=0;j<4;j++)
 permutation_new_xor[k]='\0';
 printf("After permuted XOR =>  ");puts(permutation_new_xor);
 
-///////////////////////////////////////////////////////new_right_message=R 1 = L0 + f(R 0,K 1)
+/////////////////////////new_right_message=R 1 = L0 + f(R 0,K 1)
 
 
 i=0;
@@ -657,7 +623,7 @@ decryption(new_left_message,new_right_message,key_left,key_right,right_shifts[ro
 
 }
 
-//////////////////////////////////////////////////////////After the 16th Round
+//////////////////////////After the 16th Round
 //puts(new_left_message);
 //puts(new_right_message);
 ///printf("round=>%d\n",round);
@@ -687,22 +653,11 @@ return cipher1;
 }
 
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Intermediary function
+//////////////////////////////////Intermediary function
 intermediate_decryption(char * binary_form_plain_text){
 int i=0,j=0,k=0;
 
-/* 
- char left_message[32+1];             //+1for null character
-char right_message[32+1];            //+1for null character
-j=0;k=0;
-for(i=0;i<64;i++)
-{if(i<32) {left_message[i]=binary_form_plain_text[i];j=i;}
-else {right_message[i-32]=binary_form_plain_text[i];k=i-32;}
-}
-left_message[++j]='\0';
-right_message[++k]='\0';
-*/
-//////////////////////////////////////////////Get The Binary form of Key
+////////////////////Get The Binary form of Key
 
 char binary_form_key[64];   
 char choose_key;
@@ -727,9 +682,9 @@ case '2':{char key[16];
                  sprintf(binary_form_key,"%s",convert_hex_to_binary(key));}
                  else {printf("Wrong number of input characters.\nYou have to enter 16 Hexadecimal values.\n");exit(0);}}break;
 default: {printf("You have entered a wrong number.\n");main();}   }
- /////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////Working on key////////////////////////////////////////////////
-//////////////////////////////////////////Permutation choice 1
+ //////////////************KAPIL GAUTAM*****************////////////////////
+////////////////////////////Working on key
+/////////////////Permutation choice 1
 
 char permuted_1_binary_form_key[56+1];          //+1for null character
 k=0;
@@ -754,7 +709,7 @@ printf("Left part of key  is=>  ");puts(left_permuted_1_binary_form_key);
 printf("Right part of key is=>  ");puts(right_permuted_1_binary_form_key);
 
 
-///////////////////////////////////////////////////Initial Permutation of Message
+////////////////////Initial Permutation of Message
 //puts(binary_form_plain_text);
 char permutated_message[64+1];          //+1for null character
 k=0;
@@ -780,7 +735,7 @@ printf("Right  message is=>    ");puts(new_right_message);
 
 
 
-//////////////////////////////////////////////The 16  Rounds Recursive Encryption Function
+////////////////////The 16  Rounds Recursive Encryption Function
 char *text;
 text=decryption(new_left_message,new_right_message,left_permuted_1_binary_form_key,right_permuted_1_binary_form_key,right_shifts[0],0);
 printf("\n");
@@ -796,36 +751,7 @@ char *test=convert_binary_to_string(text);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Encryption function
+////////////////////////////////////////////////Encryption function
 char *encryption(char* left_message,char* right_message,char *key_left,char *key_right,int shift,int round)
 {
 char new_left_message[32+1];                     //+1for null character
@@ -873,8 +799,8 @@ else {whole_key[k]=key_right[i-28];k++;}
 }
 whole_key[k]='\0';
 printf("Combined key  is=>     ");puts(whole_key);
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
-//////////////////////////////////////////Permutation choice 2
+////////////////////******************KAPIL GAUTAM***********///////////
+//////////////////////////////////Permutation choice 2
 char permutated_2_key[48+1];          //+1for null character
 k=0;
 for(i=0;i<8;i++)
@@ -891,7 +817,7 @@ while(right_message[i]!='\0')
 }
 new_left_message[i]='\0';
 
-//////////////////////////////////////////////////////Expansion of the right part of message
+///////////////////////Expansion of the right part of message
 
 char expansion_message[48+1];             //+1for null character
 k=0;
@@ -901,7 +827,7 @@ for(j=0;j<6;j++)
 expansion_message[k]='\0';
 printf("Exapansion Message=>   ");puts(expansion_message);
 
-///////////////////////////////////////////////XOR of permutated key and the expansion function
+///////////////////////XOR of permutated key and the expansion function
 char xor[48+1];                      //+1for null character
 i=0;
 while(expansion_message[i]!='\0' && permutated_2_key[i]!='\0')
@@ -910,7 +836,7 @@ while(expansion_message[i]!='\0' && permutated_2_key[i]!='\0')
 xor[i]='\0';
 printf(" XORed   Message =>    ");puts(xor);
 
-/////////////////////////////////////////////////Substitution Boxes
+////////////Substitution Boxes
 char sbox1[4],sbox2[4],sbox3[4],sbox4[4],sbox5[4],sbox6[4],sbox7[4],sbox8[4];
 
 for(i=0;i<48;i++)
@@ -966,7 +892,7 @@ case 7:{new_xored[k]=sbox8[j];k++;}break;
 }
 new_xored[k]='\0';
 printf(" After  S-Boxes  =>    ");puts(new_xored);
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
+///////////////////*********KAPIL GAUTAM*******************////////////////////////
 /////////////////////////////////////////Final Permutation
 char permutation_new_xor[32+1];          //+1for null character
 k=0;
@@ -978,7 +904,7 @@ for(j=0;j<4;j++)
 permutation_new_xor[k]='\0';
 printf("After permuted XOR =>  ");puts(permutation_new_xor);
 
-///////////////////////////////////////////////////////new_right_message=R 1 = L0 + f(R 0,K 1)
+////////////////////new_right_message=R 1 = L0 + f(R 0,K 1)
 
 
 i=0;
@@ -995,7 +921,7 @@ encryption(new_left_message,new_right_message,key_left,key_right,left_shifts[rou
 
 }
 
-//////////////////////////////////////////////////////////After the 16th Round
+/////////////////////////After the 16th Round
 //puts(new_left_message);
 //puts(new_right_message);
 ///printf("round=>%d\n",round);
@@ -1026,22 +952,12 @@ return cipher1;
 
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Intermediary function
+//////////////////////////////////Intermediary function
 intermediate_encryption(char * binary_form_plain_text){
 int i=0,j=0,k=0;
 
-/* 
- char left_message[32+1];             //+1for null character
-char right_message[32+1];            //+1for null character
-j=0;k=0;
-for(i=0;i<64;i++)
-{if(i<32) {left_message[i]=binary_form_plain_text[i];j=i;}
-else {right_message[i-32]=binary_form_plain_text[i];k=i-32;}
-}
-left_message[++j]='\0';
-right_message[++k]='\0';
-*/
-//////////////////////////////////////////////Get The Binary form of Key
+
+//////////////Get The Binary form of Key
 
 char binary_form_key[64];   
 char choose_key;
@@ -1066,9 +982,9 @@ case '2':{char key[16];
                  sprintf(binary_form_key,"%s",convert_hex_to_binary(key));}
                  else {printf("Wrong number of input characters.\nYou have to enter 16 Hexadecimal values.\n");exit(0);}}break;
 default: {printf("You have entered a wrong number.\n");main();}   }
- /////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////Working on key////////////////////////////////////////////////
-//////////////////////////////////////////Permutation choice 1
+ ////////////////////******KAPIL GAUTAM******************/////////////////////////////
+///////////////////////////Working on key///////////////
+////////////////////////Permutation choice 1
 
 char permuted_1_binary_form_key[56+1];          //+1for null character
 k=0;
@@ -1093,7 +1009,7 @@ printf("Left part of key  is=>  ");puts(left_permuted_1_binary_form_key);
 printf("Right part of key is=>  ");puts(right_permuted_1_binary_form_key);
 
 
-///////////////////////////////////////////////////Initial Permutation of Message
+/////////////////////Initial Permutation of Message
 //puts(binary_form_plain_text);
 char permutated_message[64+1];          //+1for null character
 k=0;
@@ -1120,7 +1036,7 @@ printf("Right  message is=>    ");puts(new_right_message);
 
 
 
-//////////////////////////////////////////////The 16  Rounds Recursive Encryption Function
+////////////////////////The 16  Rounds Recursive Encryption Function
 char *cipher;
 cipher=encryption(new_left_message,new_right_message,left_permuted_1_binary_form_key,right_permuted_1_binary_form_key,left_shifts[0],0);
 printf("\n");
@@ -1130,7 +1046,7 @@ char *test=convert_binary_to_string(cipher);
 
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Main Function
+///////////////////////Main Function
 main(){
 int i=0,j=0,k=0;
 
@@ -1145,7 +1061,7 @@ printf("%d ",permutation_choice_2[i][j]);}
 printf("\n");
 */
 
-//////////////////////////////////////////////Get The Binary form of Message
+///////////////////Get The Binary form of Message
 char choose;
 printf("Which Format your Input Text is:\n1.In English Language.\n2.Hexadecimal Form.\n");getchar();
 choose=getchar();
@@ -1180,7 +1096,7 @@ printf("%d ",permutation_choice_2[i][j]);}
 printf("\n");
 */
 
-//////////////////////////////////////////////Get The Binary form of Message
+///////////////////Get The Binary form of Message
 char choose;
 printf("Which Format your Cipher Text is:\n1.In English Language.\n2.Hexadecimal Form.\n");getchar();
 choose=getchar();
@@ -1209,34 +1125,4 @@ default: {printf("You have entered a wrong number.\n");main();}        }  }     
 default: {printf("You have entered a wrong number.\n");main();}        }        
 
 }
-/////////////////////////////////////////////////////////****************************KAPIL GAUTAM********************************///////////////////////////////////////////////////////////////
-
-
-/*
-c0= 11110000110011001010101011110101010101100110011110001111
-
-c16=11110000110011001010101011110101010101100110011110001111    0
-c15=11111000011001100101010101111010101010110011001111000111    1
-c14=11111110000110011001010101011110101010101100110011110001    2
-c13=01111111100001100110010101010111101010101011001100111100    2
-C12=01011111111000011001100101010001111010101010110011001111    2
-C11=01010111111110000110011001011100011110101010101100110011    2
-C10=01010101111111100001100110011111000111101010101011001100    2
-C9 =01010101011111111000011001100011110001111010101010110011    2
-C8 =00101010101111111100001100111001111000111101010101011001    1
-C7 =11001010101011111111000011000110011110001111010101010110    2
-C6 =00110010101010111111110000111001100111100011110101010101    2
-C5 =11001100101010101111111100000110011001111000111101010101    2
-C4 =00110011001010101011111111000101100110011110001111010101    2
-C3 =00001100110010101010111111110101011001100111100011110101    2
-C2 =11000011001100101010101111110101010110011001111000111101    2
-C1 =11100001100110010101010111111010101011001100111100011110    1
-*/
-
-
-
-
-
-
-
-
+/////////////////////////////**********************KAPIL GAUTAM*****//////////////////////
